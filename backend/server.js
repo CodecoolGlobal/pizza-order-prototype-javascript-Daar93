@@ -5,14 +5,16 @@ const filePath = path.join(`${__dirname}/pizzas.json`);
 const cors = require("cors");
 const app = express();
 const fs = require("fs");
-const indexPath = "/home/memo/Documents/Journey/TWWeeks/pizza-order-prototype-javascript-Daar93/frontend/index.html"
-const router = express.Router();
 const cons = require("consolidate");
+const router = express.Router();
 
 // Middleware
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+// app.use(express.static('public'));
+// app.use('/public', express.static(path.join(__dirname, "public")));
+// app.use(express.static(path.join(__dirname, "../frontend")));
 
 const port = 9001;
 
@@ -30,7 +32,7 @@ app.get("/api/pizza",(req, res) => {
     // res.end();
 });
 
-app.use('/public', express.static(`${__dirname}/../frontend`));
+app.use(express.static(`${__dirname}/../frontend`));
 
 console.log(__dirname);
 // router
