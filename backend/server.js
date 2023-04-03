@@ -1,11 +1,18 @@
 const express = require("express");
 const path = require("path");
 const fileReaderAsync = require("./fileReader.js");
+const filePath = path.join(`${__dirname}/pizzas.json`);
 const cors = require("cors");
 const app = express();
 const fs = require("fs");
 const cons = require("consolidate");
+const { response } = require("express");
 const router = express.Router();
+const pizzasRaw = fs.readFileSync(`${__dirname}/pizzas.json`, "utf-8");
+const pizzas = JSON.parse(pizzasRaw);
+const allergeneRaw = fs.readFileSync(`${__dirname}/allergene.json`, "utf-8")
+const allergene = JSON.parse(allergeneRaw)
+
 
 // Middleware
 app.use(cors());
@@ -24,11 +31,28 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "html");
 
 app.get("/api/pizza",(req, res) => {
-    console.log(req.url);
-    res.render(path.join(`${__dirname}/../frontend/index.html`));
-    // res.sendFile(indexPath);
-    // res.end();
+    res.json(pizzas)
+    res.end()
 });
+
+app.get("/api/allergene", (req, res) => {
+    res.json(allergene)
+    res.end()
+})
+
+
+app.get("/pizza/list",(req, res) => {
+
+    fetch(`http://127.0.0.1:9001/api/pizza`)
+    .then(response => response.json())
+    .then(data => {
+        console.log(data)
+    })
+    .catch(error => {
+        console.log(error);
+    })
+});
+
 
 app.use(express.static(`${__dirname}/../frontend`));
 
