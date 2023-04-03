@@ -22,3 +22,15 @@ body {
     transition: background-size .7s .7s, background-position .7s;
     background-size: 100% 100%;
 }
+
+#navigation-bar {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    background-color: darkslateblue;
+    line-height: 8rem;
+}
+
+/* #navigationbar>a {
+    text-decoration: none;
+} */
