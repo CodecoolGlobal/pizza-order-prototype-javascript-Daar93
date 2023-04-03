@@ -7,6 +7,8 @@ const app = express();
 const fs = require("fs");
 const cons = require("consolidate");
 const router = express.Router();
+const pizzas = fs.readFileSync("./backend/pizzas.json", "utf8");
+console.log(pizzas);
 
 // Middleware
 app.use(cors());
@@ -18,7 +20,7 @@ app.use(express.urlencoded({ extended: false }));
 
 const port = 9001;
 
-console.log(`${__dirname}/../frontend/index.html`);
+console.log(`${__dirname}/../views/index.html`);
 
 app.engine("html", cons.swig);
 app.set("views", path.join(__dirname, "views"));
@@ -26,12 +28,12 @@ app.set("view engine", "html");
 
 app.get("/api/pizza",(req, res) => {
     console.log(req.url);
-    res.render(path.join(`${__dirname}/../frontend/index.html`));
+    res.render(path.join(`${__dirname}/../views/index.html`));
     // res.sendFile(indexPath);
     // res.end();
 });
 
-app.use(express.static(`${__dirname}/../frontend`));
+app.use(express.static(`${__dirname}/../views`));
 
 console.log(__dirname);
 // router
@@ -53,6 +55,8 @@ console.log(__dirname);
 //   req.user = JSON.stringify(packagesJS.packages[id - 1]);
 //   next();
 // });
+
+
 
 app.listen(port, () => console.log(`http://127.0.0.1:${port}/api/pizza`));
 
