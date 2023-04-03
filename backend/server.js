@@ -7,8 +7,8 @@ const app = express();
 const fs = require("fs");
 const cons = require("consolidate");
 const router = express.Router();
-const pizzas = fs.readFileSync("./backend/pizzas.json", "utf8");
-console.log(pizzas);
+// const pizzas = fs.readFileSync("./backend/pizzas.json", "utf8");
+// console.log(pizzas);
 
 // Middleware
 app.use(cors());
@@ -29,7 +29,6 @@ app.set("view engine", "html");
 app.get("/api/pizza",(req, res) => {
     console.log(req.url);
     res.render(path.join(`${__dirname}/../views/index.html`));
-    // res.sendFile(indexPath);
     // res.end();
 });
 
