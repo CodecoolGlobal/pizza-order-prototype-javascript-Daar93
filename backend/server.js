@@ -1,7 +1,6 @@
 const express = require("express");
 const path = require("path");
 const fileReaderAsync = require("./fileReader.js");
-const filePath = path.join(`${__dirname}/pizzas.json`);
 const cors = require("cors");
 const app = express();
 const fs = require("fs");
