@@ -18,7 +18,6 @@ app.use(express.urlencoded({ extended: false }));
 
 const port = 9001;
 
-console.log("Hallo")
 console.log(`${__dirname}/../frontend/index.html`);
 
 app.engine("html", cons.swig);
