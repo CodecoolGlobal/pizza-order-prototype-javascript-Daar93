@@ -6,7 +6,8 @@ const cors = require("cors");
 const app = express();
 const fs = require("fs");
 const cons = require("consolidate");
-const router = express.Router();
+const apiRouter = require("./routes/api")
+const pizzaRouter = require("./routes/pizza")
 const pizzasRaw = fs.readFileSync(`${__dirname}/pizzas.json`, "utf8");
 const pizzas = JSON.parse(pizzasRaw)
 const allergeneRaw = fs.readFileSync(`${__dirname}/allergene.json`, "utf8")
@@ -28,17 +29,20 @@ app.engine("html", cons.swig);
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "html");
 
-app.get("/pizza/list",(req, res) => {
-    res.render(path.join(`${__dirname}/../views/index.html`));
-});
 
-app.get("/api/pizza",(req, res) => {
-    res.json(pizzas);
-});
+app.use("/api", apiRouter);
 
-app.get("/api/allergene", (req, res) => {
-    res.json(allergene)
-})
+// app.get("/pizza/list",(req, res) => {
+//     res.render(path.join(`${__dirname}/../views/index.html`));
+// });
+
+// app.get("/api/pizza",(req, res) => {
+//     res.json(pizzas);
+// });
+
+// app.get("/api/allergene", (req, res) => {
+//     res.json(allergene)
+// })
 
 app.use(express.static(`${__dirname}/../views`));
 
