@@ -30,17 +30,14 @@ app.set("view engine", "html");
 
 app.get("/pizza/list",(req, res) => {
     res.render(path.join(`${__dirname}/../views/index.html`));
-    // res.end();
 });
 
 app.get("/api/pizza",(req, res) => {
     res.json(pizzas);
-    res.end();
 });
 
 app.get("/api/allergene", (req, res) => {
     res.json(allergene)
-    res.end();
 })
 
 app.use(express.static(`${__dirname}/../views`));
