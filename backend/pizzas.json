@@ -1,91 +1,90 @@
-{
-    "pizzas": [
-        {
-            "id": 1,
-            "name": "Tonno",
-            "ingredients": [
-                "tuna",
-                "cheese",
-                "garlic",
-                "olives",
-                "onions",
-                "tomtato sauce",
-                "oregano"
-            ],
-            "price": 13,
-            "allergens": ["A", "C", "D", "G"]
+[
+    {
+        "id": 1,
+        "name": "Tonno",
+        "ingredients": [
+            "tuna",
+            "cheese",
+            "garlic",
+            "olives",
+            "onions",
+            "tomtato sauce",
+            "oregano"
+        ],
+        "price": 13,
+        "allergens": ["A", "C", "D", "G"]
+    },
+    {
+        "id": 2,
+        "name": "Gamberetti",
+        "ingredients": [
+            "shrimps",
+            "cheese",
+            "garlic",
+            "parsley",
+            "tomtato sauce"
+        ],
+        "price": 13,
+        "allergens": ["A", "C", "D"]
+    },
+    {
+        "id": 3,
+        "name": "Margarita",
+        "ingredients": [
+            "cheese", 
+            "tomtato sauce", 
+            "oregano"],
+        "price": 10,
+        "allergens": ["A", "G"]
         },
         {
-            "id": 2,
-            "name": "Gamberetti",
-            "ingredients": [
-                "shrimps",
-                "cheese",
-                "garlic",
-                "parsley",
-                "tomtato sauce"
-            ],
-            "price": 13,
-            "allergens": ["A", "C", "D"]
+        "id": 4,
+        "name": "Spinaci",
+        "ingredients": [
+            "cheese", 
+            "spinach", 
+            "feta", 
+            "tomtato sauce"],
+        "price": 13,
+        "allergens": ["A", "G"]
         },
         {
-            "id": 3,
-            "name": "Margarita",
-            "ingredients": [
-                "cheese", 
-                "tomtato sauce", 
-                "oregano"],
-            "price": 10,
-            "allergens": ["A", "G"]
-          },
-          {
-            "id": 4,
-            "name": "Spinaci",
-            "ingredients": [
-                "cheese", 
-                "spinach", 
-                "feta", 
-                "tomtato sauce"],
-            "price": 13,
-            "allergens": ["A", "G"]
-          },
-          {
-            "id": 5,
-            "name": "Salami",
-            "ingredients": [
-                "cheese",
-                "tomtato sauce",
-                "salami"
-            ],
-            "price": 13,
-            "allergens": ["A", "C", "G"]
-        },
-        {
-            "id": 6,
-            "name": "Pepperonio",
-            "ingredients": [
-                "tomato sauce",
-                "cheese",
-                "garlic",
-                "olives",
-                "salami di pepperoni"
-            ],
-            "price": 12,
-            "allergens": ["A", "C", "D", "G"]
-        }, 
-        {
-            "id": 7,
-            "name": "N'Duja Calabrese",
-            "ingredients": [
-                "tomato sauce",
-                "mozzarella di buffala",
-                "garlic",
-                "nduja",
-                "half-dried tomatoes",
-                "pecorino"
-            ],
-            "price": 14,
-            "allergens": ["A", "C", "D", "G"]
-        }
-    ]
-}
+        "id": 5,
+        "name": "Salami",
+        "ingredients": [
+            "cheese",
+            "tomtato sauce",
+            "salami"
+        ],
+        "price": 13,
+        "allergens": ["A", "C", "G"]
+    },
+    {
+        "id": 6,
+        "name": "Pepperonio",
+        "ingredients": [
+            "tomato sauce",
+            "cheese",
+            "garlic",
+            "olives",
+            "salami di pepperoni"
+        ],
+        "price": 12,
+        "allergens": ["A", "C", "D", "G"]
+    }, 
+    {
+        "id": 7,
+        "name": "N'Duja Calabrese",
+        "ingredients": [
+            "tomato sauce",
+            "mozzarella di buffala",
+            "garlic",
+            "nduja",
+            "half-dried tomatoes",
+            "pecorino"
+        ],
+        "price": 14,
+        "allergens": ["A", "C", "D", "G"]
+    }
+]
+
