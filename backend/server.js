@@ -2,7 +2,7 @@ const express = require("express");
 const path = require("path");
 const fileReaderAsync = require("./fileReader.js");
 const filePath = path.join(`${__dirname}/pizzas.json`);
-const cors = require("cors");
+// const cors = require("cors");
 const app = express();
 const fs = require("fs");
 const cons = require("consolidate");
@@ -15,7 +15,7 @@ const allergene = JSON.parse(allergeneRaw)
 
 
 // Middleware
-app.use(cors());
+// app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 // app.use(express.static('public'));
@@ -46,7 +46,8 @@ app.get("/pizza/list",(req, res) => {
     fetch(`http://127.0.0.1:9001/api/pizza`)
     .then(response => response.json())
     .then(data => {
-        console.log(data)
+        const root = document.querySelector("#root")
+
     })
     .catch(error => {
         console.log(error);
