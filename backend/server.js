@@ -35,12 +35,10 @@ app.get("/pizza/list",(req, res) => {
 
 app.get("/api/pizza",(req, res) => {
     res.json(pizzas);
-    res.end();
 });
 
 app.get("/api/allergene", (req, res) => {
     res.json(allergene)
-    res.end();
 })
 
 console.log(__dirname);
