@@ -7,8 +7,10 @@ const app = express();
 const fs = require("fs");
 const cons = require("consolidate");
 const router = express.Router();
-// const pizzas = fs.readFileSync("./backend/pizzas.json", "utf8");
-// console.log(pizzas);
+const pizzasRaw = fs.readFileSync(`${__dirname}/pizzas.json`, "utf8");
+const pizzas = JSON.parse(pizzasRaw)
+const allergeneRaw = fs.readFileSync(`${__dirname}/allergene.json`, "utf8")
+const allergene = JSON.parse(allergeneRaw)
 
 // Middleware
 app.use(cors());
@@ -26,11 +28,20 @@ app.engine("html", cons.swig);
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "html");
 
-app.get("/api/pizza",(req, res) => {
-    console.log(req.url);
+app.get("/pizza/list",(req, res) => {
     res.render(path.join(`${__dirname}/../views/index.html`));
     // res.end();
 });
+
+app.get("/api/pizza",(req, res) => {
+    res.json(pizzas);
+    res.end();
+});
+
+app.get("/api/allergene", (req, res) => {
+    res.json(allergene)
+    res.end();
+})
 
 app.use(express.static(`${__dirname}/../views`));
 
