@@ -13,6 +13,7 @@
                 "oregano"
             ],
             "price": 13,
+            "img": "/images/tonno.jpg",
             "allergens": ["A", "C", "D", "G"]
         },
         {

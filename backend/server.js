@@ -16,6 +16,7 @@ const allergene = JSON.parse(allergeneRaw)
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(express.static(`${__dirname}/../views`));
 // app.use(express.static('public'));
 // app.use('/public', express.static(path.join(__dirname, "public")));
 // app.use(express.static(path.join(__dirname, "../frontend")));
@@ -30,7 +31,6 @@ app.set("view engine", "html");
 
 app.get("/pizza/list",(req, res) => {
     res.render(path.join(`${__dirname}/../views/index.html`));
-    // res.end();
 });
 
 app.get("/api/pizza",(req, res) => {
@@ -42,8 +42,6 @@ app.get("/api/allergene", (req, res) => {
     res.json(allergene)
     res.end();
 })
-
-app.use(express.static(`${__dirname}/../views`));
 
 console.log(__dirname);
 // router

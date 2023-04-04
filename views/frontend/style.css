@@ -1,16 +1,29 @@
+* {
+    margin: 0px;
+}
 body {
     background-color: black;
     color: darkslateblue ;
 }
 
+#root {
+    display: flex;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
 #card {
-    background-image: url('/images/tonno.jpg');
     background-size: cover;
     font-size: 40px;
     box-shadow: 0 4px 8px 2px rgba(222, 25, 25, 5);
     transition: 0.3s;
-    width: 30%;
-    height: 40%;
+    width: 30vw;
+    height: 80vh;
     text-align: center;
     background-size: 100% 2em; /* .08em is our fixed height; modify as needed. */
     background-repeat: no-repeat;
