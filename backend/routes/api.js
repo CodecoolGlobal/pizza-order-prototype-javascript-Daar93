@@ -19,7 +19,8 @@ router.get("/allergene", (req, res) => {
 });
 
 router.get("/order", (req, res) => {
-    res.json(order);
+    res.render(path.join(`${__dirname}/../views/userInput.html`));
+    // res.json(order);
 });
 
 
