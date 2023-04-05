@@ -63,13 +63,4 @@ fetch("http://127.0.0.1:9001/api/pizza")
         data.pizzas.map((pizza, index) => {
             insertElementTo(root, createCard(pizza, pizza.name, pizza.price, index));
         });
-})
-// const fs = require("fs");
-
-// const pizzas = fs.readFileSync("./backend/pizzas.json", "utf8");
-// console.log(pizzas);
-
-// console.log("HAllooo");
-
-
-// root.insertAdjacentHTML("beforeend", "<button>");
+    });
