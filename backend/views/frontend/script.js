@@ -38,8 +38,12 @@ function createCard(pizzas, nameOfPizza, pizzaPrice, index) {
     console.log(ingredientsString);
     container.insertAdjacentHTML("beforeend", `<h6>${ingredientsString}</h6>`);
 
-    const allergens = pizzas.allergens.reduce((string, allergen) => {
-        return string + " " + allergen;
+    const allergens = pizzas.allergens.reduce((string, allergen, index) => {
+        if(index === 0) {
+            return string + " " + allergen;
+        } else {
+            return string + "," + " " + allergen;
+        }
     }, "");
 
     container.insertAdjacentHTML("beforeend", allergens);
@@ -48,6 +52,26 @@ function createCard(pizzas, nameOfPizza, pizzaPrice, index) {
     price.setAttribute("id", "price");
     price.innerText = pizzaPrice + "$";
     container.appendChild(price);
+
+    const button = document.createElement("button");
+    button.innerText = "Order";
+    cardDiv.appendChild(button);
+
+    button.addEventListener("click", event => {
+        console.log("CLICK");
+
+        fetch("http://127.0.0.1:9001/pizza/list", {
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "body": '{"string": "blead"}'
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+            });
+    });
 
     return cardDiv;
 };
@@ -64,3 +88,4 @@ fetch("http://127.0.0.1:9001/api/pizza")
             insertElementTo(root, createCard(pizza, pizza.name, pizza.price, index));
         });
     });
+

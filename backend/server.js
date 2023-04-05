@@ -1,16 +1,9 @@
 const express = require("express");
 const path = require("path");
 const fileReaderAsync = require("./fileReader.js");
-const filePath = path.join(`${__dirname}/pizzas.json`);
 const cors = require("cors");
 const app = express();
-const fs = require("fs");
 const cons = require("consolidate");
-const router = express.Router();
-const pizzasRaw = fs.readFileSync(`${__dirname}/pizzas.json`, "utf8");
-const pizzas = JSON.parse(pizzasRaw)
-const allergeneRaw = fs.readFileSync(`${__dirname}/allergene.json`, "utf8")
-const allergene = JSON.parse(allergeneRaw);
 const apiRouter = require("./routes/api");
 const pizzaRouter = require("./routes/pizza"); 
 
@@ -28,7 +21,7 @@ app.engine("html", cons.swig);
 app.set("views", path.join(__dirname, "/views"));
 app.set("view engine", "html");
 
-app.listen(port, () => console.log(`http://127.0.0.1:${port}/api/pizza`));
-
 app.use("/api", apiRouter);
 app.use("/pizza/list", pizzaRouter);
+
+app.listen(port, () => console.log(`http://127.0.0.1:${port}/api/pizza`));
