@@ -51,33 +51,34 @@ body {
 
 * {
     margin: 0px;
- }
- body {
+}
+
+body {
     background-color: black;
-    color: darkslateblue ;
+    color: darkslateblue;
     font-family: "Raleway";
- }
- 
- #header {
-    position:sticky;
+}
+
+#header {
+    position: sticky;
     padding: 1rem;
     display: flex;
     justify-content: space-between;
     width: 100%;
     z-index: 2;
     background-color: #e4e4e4f6;
-     font-family: "Raleway";
- }
- 
- #background-image{
-     position: absolute;
-     top: -150px;
-     width: 100%;
-     z-index: 0;
-     opacity: 70%;
- }
+    font-family: "Raleway";
+}
 
- .pizza {
+#background-image {
+    position: absolute;
+    top: -150px;
+    width: 100%;
+    z-index: 0;
+    opacity: 70%;
+}
+
+.pizza {
     font-family: "Raleway";
     display: flex;
     flex-direction: column;
@@ -92,30 +93,36 @@ body {
     background-repeat: no-repeat;
     transition: background-size .7s, background-position .7s .7s;
     z-index: 1;
-     color: white;
-     background-color:#00000030 ;
-     padding: 20px;
- }
- 
- #pizza-name {
-     font-weight: 700;
-     font-size: 50px;
- }
- 
- .pizza:hover {
+    color: white;
+    background-color: #00000030;
+    padding: 20px;
+}
+
+#pizza-name {
+    font-weight: 700;
+    font-size: 50px;
+}
+
+.pizza:hover {
     box-shadow: 0px 0px 6px 6px white;
     transition: background-size .7s .7s, background-position .7s;
     background-size: 100% 100%;
- }
+}
 
- #order-button {
+#order-button {
     background-color: #657478;
-    color:white;
+    color: white;
     border-radius: 20px;
     padding: 10px;
     box-shadow: none;
- }
- 
+}
+
+#order-button:hover {
+    box-shadow: 0px 0px 6px 6px white;
+    transition: background-size .7s .7s, background-position .7s;
+    background-size: 100% 100%;
+}
+
 button {
     bottom: 0px;
 }
@@ -136,6 +143,14 @@ button {
     border-radius: 20px;
 }
 
- /* #navigationbar>a {
+.add-to-order-button:hover {
+    box-shadow: 0px 0px 6px 6px white;
+    transition: background-size .7s .7s, background-position .7s;
+    background-size: 100% 100%;
+}
+
+/* #navigationbar>a {
     text-decoration: none;
- }
+ }box-shadow: 0px 0px 6px 6px white;
+    transition: background-size .7s .7s, background-position .7s;
+    background-size: 100% 100%;

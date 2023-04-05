@@ -14,7 +14,7 @@ function createHeader() {
     header.setAttribute("id", "header");
 
     const h1 = document.createElement("h1");
-    h1.innerText = "Mario's Pizza";
+    h1.innerText = "Mario's πzza";
     header.appendChild(h1);
 
     const button = document.createElement("button");
@@ -155,7 +155,7 @@ ordersButton.addEventListener("click", event => {
 fetch("http://127.0.0.1:9001/api/pizza")
     .then(response => response.json())
     .then(data => {
-        console.log(data);
+        //console.log(data);
         data.pizzas.map((pizza, index) => {
             insertElementTo(row, createCard(pizza, pizza.name, pizza.price, index));
         });
