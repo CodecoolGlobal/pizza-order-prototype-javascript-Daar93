@@ -24,4 +24,4 @@ app.set("view engine", "html");
 app.use("/api", apiRouter);
 app.use("/pizza/list", pizzaRouter);
 
-app.listen(port, () => console.log(`http://127.0.0.1:${port}/api/pizza`));
+app.listen(port, () => console.log(`http://127.0.0.1:${port}/pizza/list`));

@@ -1,4 +1,9 @@
 const root = document.getElementById("root");
+const pizzasJS = await fetch("http://127.0.0.1:9001/api/pizza")
+    .then(response => response.json());
+const orders = [];
+
+// console.log(pizzas);
 
 function insertElementTo(element, elementToInsert) {
     element.appendChild(elementToInsert);
@@ -11,6 +16,11 @@ function createHeader() {
     const h1 = document.createElement("h1");
     h1.innerText = "Mario's Pizza";
     header.appendChild(h1);
+
+    const button = document.createElement("button");
+    button.innerText = "Your Order Oida!";
+    button.setAttribute("id", "order-button");
+    header.appendChild(button);
 
     return header;
 };
@@ -102,18 +112,22 @@ function createCard(pizzas, nameOfPizza, pizzaPrice, index) {
 
     button.addEventListener("click", event => {
         console.log("CLICK");
+        const id = parseInt(event.target.id) - 1;
+        // console.log(id);
+        orders.push(pizzasJS.pizzas[id]);
 
-        fetch("http://127.0.0.1:9001/pizza/list", {
-            "method": "POST",
-            "headers": {
-                "Content-Type": "application/json"
-            },
-            "body": '{"string": "blead"}'
-        })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-            });
+        console.log(orders);
+        // fetch("http://127.0.0.1:9001/pizza/list", {
+        //     "method": "POST",
+        //     "headers": {
+        //         "Content-Type": "application/json"
+        //     },
+        //     "body": '{"string": "blead"}'
+        // })
+        //     .then(response => response.json())
+        //     .then(data => {
+        //         console.log(data);
+        // });
     });
 
     return pizza;
