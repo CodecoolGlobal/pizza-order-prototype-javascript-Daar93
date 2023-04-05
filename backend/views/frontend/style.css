@@ -55,6 +55,7 @@ body {
  body {
     background-color: black;
     color: darkslateblue ;
+    font-family: "Raleway";
  }
  
  #header {
@@ -64,7 +65,7 @@ body {
     justify-content: space-between;
     width: 100%;
     z-index: 2;
-    background-color: white;
+    background-color: #e4e4e4f6;
      font-family: "Raleway";
  }
  
@@ -76,7 +77,7 @@ body {
      opacity: 70%;
  }
 
- #pizza {
+ .pizza {
     font-family: "Raleway";
     display: flex;
     flex-direction: column;
@@ -101,15 +102,18 @@ body {
      font-size: 50px;
  }
  
- #pizza:hover {
+ .pizza:hover {
     box-shadow: 0px 0px 6px 6px white;
     transition: background-size .7s .7s, background-position .7s;
     background-size: 100% 100%;
  }
 
  #order-button {
-    background-color: rgb(55, 54, 54);
+    background-color: #657478;
     color:white;
+    border-radius: 20px;
+    padding: 10px;
+    box-shadow: none;
  }
  
 button {
@@ -119,6 +123,17 @@ button {
 #order-link {
     text-decoration: none;
     color: white;
+}
+
+.input {
+    font-size: 30px;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.add-to-order-button {
+    background-color: white;
+    border-radius: 20px;
 }
 
  /* #navigationbar>a {

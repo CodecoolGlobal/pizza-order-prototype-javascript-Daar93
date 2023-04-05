@@ -18,9 +18,8 @@ function createHeader() {
     header.appendChild(h1);
 
     const button = document.createElement("button");
-    button.innerText = "Your Order Oida!";
+    button.innerText = "Your Order!";
     button.setAttribute("id", "order-button");
-    button.innerText = "Your Order Oida!";
     header.appendChild(button);
 
 
@@ -77,7 +76,7 @@ function createCard(pizzas, nameOfPizza, pizzaPrice, index) {
     }
 
     const pizza = document.createElement("div");
-    pizza.setAttribute("id", "pizza");
+    pizza.setAttribute("class", "pizza");
     pizza.classList.add("col-sd-12");
     pizza.classList.add("col-md-4");
     row.appendChild(pizza);
@@ -108,18 +107,30 @@ function createCard(pizzas, nameOfPizza, pizzaPrice, index) {
     price.innerText = pizzaPrice + "$";
     pizza.appendChild(price);
 
+    const input = document.createElement("input");
+    input.setAttribute("id", `input${index + 1}`);
+    input.setAttribute("class", "input");
+    input.setAttribute("placeholder", "Amount of Pizzas");
+    pizza.appendChild(input);
+
     const button = document.createElement("button");
-    button.innerText = "Order";
+    button.innerText = "Add to order";
     button.setAttribute("id", index + 1);
+    button.setAttribute("class", "add-to-order-button")
     pizza.appendChild(button);
 
     button.addEventListener("click", event => {
         console.log("CLICK");
         const id = parseInt(event.target.id) - 1;
-        // console.log(id);
-        orders.push(pizzasJS.pizzas[id]);
-
-        console.log(orders);
+        
+        const input = document.querySelector(`#input${id + 1}`);
+        const amount = parseInt(input.value);
+        
+        if(isFinite(amount)) {
+            for(let i = 0; i< amount; i++) {
+                orders.push(pizzasJS.pizzas[id]);
+            }
+        }
     });
 
     return pizza;
