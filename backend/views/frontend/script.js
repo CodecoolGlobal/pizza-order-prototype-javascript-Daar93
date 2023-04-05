@@ -20,7 +20,9 @@ function createHeader() {
     const button = document.createElement("button");
     button.innerText = "Your Order Oida!";
     button.setAttribute("id", "order-button");
+    button.innerText = "Your Order Oida!";
     header.appendChild(button);
+
 
     return header;
 };
@@ -53,6 +55,7 @@ function insertHtmlTree() {
 insertHtmlTree();
 
 const row = document.querySelector(".row");
+const ordersButton = document.querySelector("#order-button");
 
 function createAllergens(container) {
     const allergens = document.createElement("h6");
@@ -117,22 +120,25 @@ function createCard(pizzas, nameOfPizza, pizzaPrice, index) {
         orders.push(pizzasJS.pizzas[id]);
 
         console.log(orders);
-        // fetch("http://127.0.0.1:9001/pizza/list", {
-        //     "method": "POST",
-        //     "headers": {
-        //         "Content-Type": "application/json"
-        //     },
-        //     "body": '{"string": "blead"}'
-        // })
-        //     .then(response => response.json())
-        //     .then(data => {
-        //         console.log(data);
-        // });
     });
 
     return pizza;
 };
 
+ordersButton.addEventListener("click", event => {
+    fetch("http://127.0.0.1:9001/pizza/list", {
+        "method": "POST",
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "body": JSON.stringify(orders)
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            self.location.href = "http://127.0.0.1:9001/api/order";
+    });
+});
 
 
 fetch("http://127.0.0.1:9001/api/pizza")
@@ -143,4 +149,5 @@ fetch("http://127.0.0.1:9001/api/pizza")
             insertElementTo(row, createCard(pizza, pizza.name, pizza.price, index));
         });
     });
+
 

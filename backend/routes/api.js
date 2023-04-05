@@ -7,6 +7,8 @@ const pizzasRaw = fs.readFileSync(`${__dirname}/../pizzas.json`, "utf8");
 const pizzas = JSON.parse(pizzasRaw);
 const allergeneRaw = fs.readFileSync(`${__dirname}/../allergene.json`, "utf8");
 const allergene = JSON.parse(allergeneRaw);
+const ordersRaw = fs.readFileSync(`${__dirname}/../orders.json`, "utf8");
+const order = JSON.parse(ordersRaw);
 
 router.get("/pizza",(req, res) => {
     res.json(pizzas);
@@ -16,6 +18,9 @@ router.get("/allergene", (req, res) => {
     res.json(allergene);
 });
 
+router.get("/order", (req, res) => {
+    res.json(order);
+});
 
 
 module.exports = router;

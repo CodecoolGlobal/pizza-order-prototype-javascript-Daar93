@@ -1,6 +1,5 @@
 const express = require("express");
 const path = require("path");
-const filePath = path.join(`${__dirname}/pizzas.json`);
 const router = express.Router();
 const fs = require("fs");
 const pizzasRaw = fs.readFileSync(`${__dirname}/../pizzas.json`, "utf8");
@@ -15,6 +14,10 @@ router.get("/",(req, res) => {
 router.post("/", (req, res) => {
     // req.body = {"name": "Memo"};
     // console.log(req.body);
+    req.body = JSON.stringify(req.body);
+    fs.writeFile(path.join(`${__dirname}/../orders.json`), req.body, (err) => {
+
+    });
     res.json(req.body);
 });
 
