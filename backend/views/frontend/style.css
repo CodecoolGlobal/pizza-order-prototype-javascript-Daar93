@@ -1,4 +1,4 @@
-* {
+/*  {
     margin: 0px;
 }
 body {
@@ -25,7 +25,7 @@ body {
     width: 30vw;
     height: 80vh;
     text-align: center;
-    background-size: 100% 2em; /* .08em is our fixed height; modify as needed. */
+    background-size: 100% 2em; /* .08em is our fixed height; modify as needed. 
     background-repeat: no-repeat;
     transition: background-size .7s, background-position .7s .7s;
 }
@@ -42,9 +42,68 @@ body {
     justify-content: center;
     background-color: darkslateblue;
     line-height: 8rem;
-}
+} */
 
 /* #navigationbar>a {
     text-decoration: none;
 } */
 
+
+* {
+    margin: 0px;
+ }
+ body {
+    background-color: black;
+    color: darkslateblue ;
+ }
+ 
+ #header {
+    position:sticky;
+    width: 100%;
+    z-index: 2;
+    background-color: white;
+     font-family: "Raleway";
+ }
+ 
+ #background-image{
+     position: absolute;
+     top: -150px;
+     width: 100%;
+     z-index: 0;
+     opacity: 70%;
+ }
+
+ #pizza {
+    font-family: "Raleway";
+    font-size: 40px;
+    border: 2px solid white;
+    transition: 0.3s;
+    text-align: center;
+    background-size: 100% 2em;
+    background-repeat: no-repeat;
+    transition: background-size .7s, background-position .7s .7s;
+    z-index: 1;
+     color: white;
+     background-color:#00000030 ;
+     padding: 20px;
+ }
+ 
+ #pizza-name {
+     font-weight: 700;
+     font-size: 50px;
+ }
+ 
+ #pizza:hover {
+    box-shadow: 0px 0px 6px 6px swhite;
+    transition: background-size .7s .7s, background-position .7s;
+    background-size: 100% 100%;
+ }
+ 
+button {
+
+    bottom: 0px;
+}
+
+ /* #navigationbar>a {
+    text-decoration: none;
+ }
