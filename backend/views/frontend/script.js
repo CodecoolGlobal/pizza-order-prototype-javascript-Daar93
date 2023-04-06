@@ -135,31 +135,28 @@ function createCard(pizzas, nameOfPizza, pizzaPrice, index) {
 };
 
 ordersButton.addEventListener("click", event => {
-    const post = async function post() {
-        const post = await fetch("http://127.0.0.1:9001/pizza/list", {
-            "method": "POST",
-            "headers": {
-                "Content-Type": "application/json"
-            },
-            "body": JSON.stringify(orders)
-        })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-        });
 
-        return post;
-    }();
-    if(post !== "promise") {
-        self.location.href = "http://127.0.0.1:9001/api/order";
-    }
+    fetch("http://127.0.0.1:9001/pizza/list", {
+        "method": "POST",
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "body": JSON.stringify(orders)
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            self.location.href = "http://127.0.0.1:9001/api/order";
+    });
 });
 
+// Generate HTML
 fetch("http://127.0.0.1:9001/api/pizza")
     .then(response => response.json())
     .then(data => {
-        //console.log(data);
-        data.pizzas.map((pizza, index) => {
+        const pizza = JSON.parse(data);
+        console.log(data);
+        pizza.pizzas.map((pizza, index) => {
             insertElementTo(row, createCard(pizza, pizza.name, pizza.price, index));
         });
     });
