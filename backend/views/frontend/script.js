@@ -24,8 +24,9 @@ function createHeader() {
     h1.innerText = "Mario's πzza";
     header.appendChild(h1);
 
-    const button = document.createElement("button");
+    const button = document.createElement("a");
     button.innerText = "Your Order!";
+    button.setAttribute("href", "http://127.0.0.1:9001/api/order")
     button.setAttribute("id", "order-button");
     header.appendChild(button);
 
@@ -156,8 +157,6 @@ ordersButton.addEventListener("click", event => {
     })
         .then(response => response.json())
         .then(data => {
-
-        self.location.href = "http://127.0.0.1:9001/api/order";
     });
 });
 
