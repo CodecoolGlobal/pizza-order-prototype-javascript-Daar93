@@ -16,23 +16,18 @@ router.get("/allergene", (req, res) => {
 });
 
 router.get("/order/list", (req, res) => {
-  console.log(ordersRaw);
-  res.json(ordersRaw);
+  res.json(JSON.parse(ordersRaw));
 });
 
-router.get("/order", (req, res) => {
-  res.render(path.join(`${__dirname}/../views/userInput.html`));
-});
+router.post("/order", (req, res) => {
+  // read orders.json
+  const allOrders = JSON.parse(ordersRaw);
+  // add new order
+  
+  allOrders.push({ date: new Date(), ...req.body});
+  // write orders.json
 
-router.get("/orderInformation", (req, res) => {
-  res.json(orderInformationRaw);
-});
-
-router.post("/", (req, res) => {
-  // req.body = {"name": "Memo"};
-  // console.log(req.body);
-  req.body = JSON.stringify(req.body);
-  fs.writeFile(path.join(`${__dirname}/../orders.json`), req.body, (err) => {});
+  fs.writeFile(`${__dirname}/../orders.json`, JSON.stringify(allOrders), () => {});
   res.json(req.body);
 });
 

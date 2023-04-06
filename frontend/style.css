@@ -134,7 +134,24 @@ body {
 
 
 #order-button:hover {
-   box-shadow: 0px 0px 6px 6px white;
+   box-shadow: 0px 0px 6px 6px rgb(206, 247, 206);
+   transition: background-size .7s .7s, background-position .7s;
+   background-size: 100% 100%;
+}
+
+#clear-button {
+   text-align: center;
+   background-color: #657478;
+   color: white;
+   border-radius: 20px;
+   padding: 10px;
+   box-shadow: none;
+}
+
+
+#clear-button:hover {
+   background-color: red;
+   box-shadow: 0px 0px 6px 6px rgb(236, 183, 183);
    transition: background-size .7s .7s, background-position .7s;
    background-size: 100% 100%;
 }
@@ -150,6 +167,9 @@ button {
    color: white;
 }
 
+#button-flex {
+   gap: 7px;
+}
 
 .input {
    font-size: 30px;
@@ -190,7 +210,7 @@ button {
    color: white;
    font-size: 80px;
    font-weight: 700;
-  
+
 }
 
 
@@ -209,7 +229,7 @@ button {
 }
 
 
-#submit{
+#submit {
    background-color: rgb(252, 95, 95);
    width: 130px;
    color: white;
@@ -217,18 +237,16 @@ button {
    padding: 30px;
 }
 
-
-
-
 #orderedPizzas {
    margin: auto;
    text-align: center;
-   font-size: 50px;
+   font-size: 36px;
    font-weight: 400;
    color: white;
    padding: 40px;
    width: 400px;
 }
+
 /* #navigationbar>a {
    text-decoration: none;
 }box-shadow: 0px 0px 6px 6px white;
