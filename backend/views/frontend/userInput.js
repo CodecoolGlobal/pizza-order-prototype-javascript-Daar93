@@ -11,7 +11,10 @@
 
 // console.log(orderedPizzasJS);
 
-const request = await fetch("http://127.0.0.1:9001/api/order")
-const data = await request.json();
+fetch("http://127.0.0.1:9001/api/order/list")
+    .then(data => data.json())
+    .then(data => {
+        const orderedPizzas = JSON.parse(data);
 
-console.log(data);
+        console.log(orderedPizzas);
+    })

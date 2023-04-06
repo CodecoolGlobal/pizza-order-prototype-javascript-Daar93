@@ -15,11 +15,13 @@ router.get("/allergene", (req, res) => {
     res.json(allergeneRaw);
 });
 
-router.get("/order", (req, res) => {
+router.get("/order/list", (req, res) => {
     console.log(ordersRaw)
     res.json(ordersRaw);
 });
 
-
+router.get("/order", (req, res) => {
+    res.render(path.join(`${__dirname}/../views/userInput.html`));
+});
 
 module.exports = router;

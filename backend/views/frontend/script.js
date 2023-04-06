@@ -1,7 +1,16 @@
 const root = document.getElementById("root");
-const pizzasJS = await fetch("http://127.0.0.1:9001/api/pizza")
-    .then(response => response.json());
+async function fetchPizzas() {
+    const response = await fetch("http://127.0.0.1:9001/api/pizza");
+    const pizzas = await response.json();
+    // waits until the request completes...
+    const pizzasJS = await JSON.parse(pizzas);
+
+    return pizzasJS;
+};
+// const pizzasJS = await JSON.parse(fetchPizzas());
+const pizzasJS = await fetchPizzas();
 const orders = [];
+console.log(pizzasJS);
 
 function insertElementTo(element, elementToInsert) {
     element.appendChild(elementToInsert);
@@ -125,6 +134,8 @@ function createCard(pizzas, nameOfPizza, pizzaPrice, index) {
         const amount = parseInt(input.value);
         
         if(isFinite(amount)) {
+
+                
             for(let i = 0; i< amount; i++) {
                 orders.push(pizzasJS.pizzas[id]);
             }
@@ -145,8 +156,8 @@ ordersButton.addEventListener("click", event => {
     })
         .then(response => response.json())
         .then(data => {
-            console.log(data);
-            self.location.href = "http://127.0.0.1:9001/api/order";
+
+        self.location.href = "http://127.0.0.1:9001/api/order";
     });
 });
 
@@ -155,7 +166,6 @@ fetch("http://127.0.0.1:9001/api/pizza")
     .then(response => response.json())
     .then(data => {
         const pizza = JSON.parse(data);
-        console.log(data);
         pizza.pizzas.map((pizza, index) => {
             insertElementTo(row, createCard(pizza, pizza.name, pizza.price, index));
         });

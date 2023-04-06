@@ -21,11 +21,9 @@ app.engine("html", cons.swig);
 app.set("views", path.join(__dirname, "/views"));
 app.set("view engine", "html");
 
-app.get("/frontpage/orders", (req, res) => {    
-    res.render(path.join(`${__dirname}/views/userInput.html`));
-    
-})
-
+// app.get("/frontpage/orders", (req, res) => {    
+//     res.render(path.join(`${__dirname}/views/userInput.html`));
+// })
 
 app.use("/api", apiRouter);
 app.use("/pizza/list", pizzaRouter);

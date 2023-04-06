@@ -15,9 +15,7 @@ router.post("/", (req, res) => {
     // req.body = {"name": "Memo"};
     // console.log(req.body);
     req.body = JSON.stringify(req.body);
-    fs.writeFile(path.join(`${__dirname}/../orders.json`), req.body, (err) => {
-
-    });
+    fs.writeFile(path.join(`${__dirname}/../orders.json`), req.body, (err) => {});
     res.json(req.body);
 });
 
