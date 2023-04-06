@@ -3,7 +3,7 @@ async function fetchPizzas() {
     const response = await fetch("http://127.0.0.1:9001/api/pizza");
     const pizzas = await response.json();
     // waits until the request completes...
-    const pizzasJS = await JSON.parse(pizzas);
+    const pizzasJS = JSON.parse(pizzas);
 
     return pizzasJS;
 };
