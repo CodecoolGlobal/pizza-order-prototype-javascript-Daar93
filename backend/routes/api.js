@@ -16,6 +16,7 @@ router.get("/allergene", (req, res) => {
 });
 
 router.get("/order/list", (req, res) => {
+  // Is it needed to parse it?
   res.json(JSON.parse(ordersRaw));
 });
 
