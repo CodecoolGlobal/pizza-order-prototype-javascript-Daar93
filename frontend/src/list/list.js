@@ -104,9 +104,6 @@ function createIngredients(allIngredients) {
 };
 
 function createCard(pizza, nameOfPizza, pizzaPrice, index) {
-    if(index === 3) {
-        root.insertAdjacentHTML("beforeend", "<br>"); /// ?????
-    }
 
     const pizzaElem = document.createElement("div");
     pizzaElem.setAttribute("class", "pizza");
@@ -173,7 +170,6 @@ function createCard(pizza, nameOfPizza, pizzaPrice, index) {
     return pizzaElem;
 };
 
-// Generate HTML
 fetch("http://127.0.0.1:9001/api/pizza")
     .then(response => response.json())
     .then(data => {

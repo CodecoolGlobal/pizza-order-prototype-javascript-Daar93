@@ -20,12 +20,9 @@ router.get("/order/list", (req, res) => {
 });
 
 router.post("/order", (req, res) => {
-  // read orders.json
   const allOrders = JSON.parse(ordersRaw);
-  // add new order
   
   allOrders.push({ date: new Date(), ...req.body});
-  // write orders.json
 
   fs.writeFile(`${__dirname}/../orders.json`, JSON.stringify(allOrders), () => {});
   res.json(req.body);

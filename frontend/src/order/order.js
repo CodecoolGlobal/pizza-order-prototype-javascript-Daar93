@@ -3,12 +3,11 @@ import { readLocalStorage, writeLocalStorage, clearLocalStorage } from "../../sr
 async function fetchPizzas() {
   const response = await fetch("/api/pizza");
   const pizzas = await response.json();
-  // waits until the request completes...
   const pizzasJS = JSON.parse(pizzas);
 
   return pizzasJS;
 };
-// const pizzasJS = await JSON.parse(fetchPizzas());
+
 const pizzasJS = await fetchPizzas();
 
 
@@ -23,13 +22,8 @@ function createHeader() {
   h1.innerText = "Mario's πzza";
   header.appendChild(h1);
 
-  // const button = document.createElement("button");
-  // button.innerText = "Your Order!";
-  // button.setAttribute("id", "order-button");
-  // header.appendChild(button);
-
   return header;
-}
+};
 
 function createInput(idName, placeholder) {
   const input = document.createElement("input");
@@ -39,7 +33,7 @@ function createInput(idName, placeholder) {
   input.setAttribute("placeholder", placeholder);
 
   return input;
-}
+};
 
 function createSubmit(idName, placeholder) {
   const input = document.createElement("input");
@@ -52,7 +46,7 @@ function createSubmit(idName, placeholder) {
   input.setAttribute("placeholder", placeholder);
 
   return input;
-}
+};
 
 function createTitle() {
   const h1 = document.createElement("h1");
@@ -60,7 +54,7 @@ function createTitle() {
   h1.innerText = "Your Order";
 
   return h1;
-}
+};
 
 function createPizzas() {
   const h2 = document.createElement("h1");
@@ -69,7 +63,7 @@ function createPizzas() {
   h2.innerText = "Your Order";
 
   return h2;
-}
+};
 
 function createOrderDisplay() {
   const orderDisplay = document.createElement("div");
@@ -95,10 +89,10 @@ function createOrderDisplay() {
 
       return pizzaElem;
     })
-    .forEach(p => orderDisplay.appendChild(p));
+    .forEach(pizza => orderDisplay.appendChild(pizza));
 
   return orderDisplay;
-}
+};
 
 function createBackgroundImage() {
   const backgroundImage = document.createElement("img");
@@ -106,7 +100,7 @@ function createBackgroundImage() {
   backgroundImage.setAttribute("id", "background-image");
 
   return backgroundImage;
-}
+};
 
 function insertInputFieldsTo(element) {
   element.appendChild(createTitle());
@@ -116,7 +110,7 @@ function insertInputFieldsTo(element) {
   element.appendChild(createInput("city", "City"));
   element.appendChild(createInput("street", "Street"));
   element.appendChild(createSubmit("submit", "submit"));
-}
+};
 
 function createFrom() {
   const form = document.createElement("form");
@@ -125,15 +119,19 @@ function createFrom() {
   insertInputFieldsTo(form);
 
   return form;
-}
+};
 
 function insertElementTo(element, elementToInsert) {
   element.appendChild(elementToInsert);
-}
+};
 
-insertElementTo(root, createHeader());
-insertElementTo(root, createFrom());
-insertElementTo(root, createBackgroundImage());
+function insertHtmlTree() {
+  insertElementTo(root, createHeader());
+  insertElementTo(root, createFrom());
+  insertElementTo(root, createBackgroundImage());
+};
+
+insertHtmlTree();
 
 const submitElement = document.querySelector("#submit");
 const formElement = document.querySelector(".formular");

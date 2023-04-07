@@ -5,12 +5,12 @@ export function readLocalStorage() {
     } else {
         return [];
     }
-}
+};
 
 export function writeLocalStorage(orders) {
     localStorage.setItem("orders", JSON.stringify(orders));
-}
+};
 
 export function clearLocalStorage() {
     localStorage.removeItem("orders");
-}
+};
